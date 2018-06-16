@@ -1,0 +1,60 @@
+Tuples: ordered sequence of elements, can have mixed element types
+	(): empty tuple
+	(1, "Bob", 2)
+	use len(tuple) to get the number of elements in tuple
+	immutable: cannot change element values, but can change the elements
+	extra comma mean a tuple with one element (1) = integer 1, (1,) = tuple with value 1
+	conveniently used to swap variables
+	can iterate over tuples
+
+Lists: ordered sequence of elements, usually of the same type but can have different types
+	l = []: empty list
+	L = [3, 5, 9]: list example
+	mutable!
+	can iterate directly over a list
+		for example
+		for i in L
+			total += i
+	to change the list: L[2] = 10 -> L = [3, 5, 10]
+	easier to make mistakes
+
+Operations on lists: add, remove
+	use operations from python on the object
+	for example:
+		L.append(element): adds an element to the end of the list
+		L.extend(some_list): extend L with some_list
+		L.pop(): removes element at end of L and return this element
+		del(L[index]): deletes elements at a specific index
+	lists can also be concatenated
+	
+	convert lists to string and back: list(s) returns a list, every character is an element in that list
+		s.split(): splits a string into a list, if empty splits on spaces
+		''.join(L): changes a list of elements into one string
+		'_'.join(L): changes a list of elements into one string with _ separating the elements
+		 
+	.sort(): mutates list and sorts from low to high 
+	sorted(): returns a new list from low to high, does not mutate list
+	.reverse(): mutates a list and sorts from high to low
+
+	range[] can be viewed as a list that is created, used for convenience
+
+Lists in memory:
+	you can have multiple names that point to the same list, so if list is mutated all variables are also affected
+	if two lists print the same thing it does not mean they are the same list; test by mutating one and checking both
+	to clone a list use, list[:]
+	list can be nested: list in a list in a list
+	
+	avoid mutating a list as you are iterating over it
+	create a copy/clone
+
+Functions as objects:
+	we can use functions to mutate a complete list
+	def name(list, function): each element in the list is changed by running it through the function
+	can also do the other way around: list of function applied to a value
+	use map function in python: 
+		for e in map(function, name of list or [elements])
+		can get multiple lists as arguments to compare list e.g.
+			for e in map(min, L1, L2)
+				print e			compares elements in L1 and L2 and prints the minimum of these values
+
+		

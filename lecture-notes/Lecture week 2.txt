@@ -1,0 +1,30 @@
+Strings are immutable: you can't change certain parts of a string but you can change the string in total
+
+For loops can be used to iterate a string per character
+	for char in s
+
+Bisection search:
+	computationally faster than previous guess and check. 
+	for every guess we discard half of the other possibilities, so the range in which the answer lies becomes smaller and smaller
+	powerful idea used in computer science
+
+Two important ideas:
+	decomposition: use several projectors to compose one image; break problem in different self contained pieces
+	abstraction: do not need to know the specifics to know how it works, we can use something but do not need to know the details; surpress details of method to compute something from that computation
+
+Reusable code is created with: functions
+	1. function name
+	2. parameters (can have 0 parameters)
+	3. docstring: description of what the function does (optional)
+	4. body: the actual code
+
+	Use def to define the function. Use return to define the value what comes out of the function
+	
+	Calling functions: formal parameter gets bound to an actual value which is run through the code when function is called.
+
+Iteration: uses some test and runs a block of code which changes the tested variable, code runs as long as the test is true
+Recursion: breaks the problem into a simples problem, and does this untill the problem is solved. Done by using a function inside a function. A new scope is created for every new value, so there is no confusion.
+
+Mathematical induction: proof something is true for smallest number, and proof it is true for a random number. If both are true assume it is true for all values greater than the smallest number. 
+  
+
