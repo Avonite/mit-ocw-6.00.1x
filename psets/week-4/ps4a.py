@@ -264,18 +264,30 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    points = 0
-    action = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
-    while action != e:
+    hand = {}
+    
+    while True:
+    	# Get user input
+    	action = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
     	# Check valid input
     	if action not in 'nre':
     		print("Invalid command")
     		continue
-    	# # Action is new hand
-    	# elif action == 'n':
-
-    	# # Action is replay last hand
-    	# elif action = 'r':
+    	# Action is end game
+    	elif action == 'e':
+    		break
+    	# Action is new hand
+    	elif action == 'n':
+    		hand = dealHand(HAND_SIZE)
+    		playHand(hand, wordList, HAND_SIZE)
+    	# Action is replay
+    	elif action == 'r':
+    		# If no hand has been played yet
+    		if len(hand) == 0:
+    			print("You have not played a hand yet. Please play a new hand first!")
+    			print()
+    		else:
+    			playHand(hand, wordList, HAND_SIZE)
     return
 
    
