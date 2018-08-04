@@ -193,7 +193,7 @@ class PlaintextMessage(Message):
 
         Returns: nothing
         '''
-        self.shift = shift
+        self.shift += 1
         self.encrypting_dict = self.build_shift_dict(self.shift)
         self.message_text_encrypted = self.apply_shift(self.shift)
 
@@ -227,14 +227,14 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        shift = 1
-        decipherText = PlaintextMessage(self.message_text, shift)
+        decipherText = PlaintextMessage(self.message_text, 1)
 
         bestValidWords = 0
         validWords = 0
         bestText = ''
         bestShift = 1
-        while shift < 26:
+        while decipherText.shift < 26:
+            validWords = 0
             for word in decipherText.get_message_text_encrypted().split(' '):
                 if word in self.get_valid_words():
                     validWords += 1                    
@@ -242,8 +242,7 @@ class CiphertextMessage(Message):
                 bestValidWords = validWords
                 bestText = decipherText.get_message_text_encrypted()
                 bestShift = decipherText.get_shift()
-            shift += 1
-            decipherText.change_shift(shift)
+            decipherText.change_shift(1)
         return (bestShift, bestText)
 
 
