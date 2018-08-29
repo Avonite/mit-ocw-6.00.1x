@@ -1,12 +1,17 @@
-s = 'azc'
-longStr = ""
-nxt = 1
+s = 'abc'
+subStr = ''
+start = 0
+end = 0
 
-for i in s:
-    if i <= s[nxt]:
-        longStr += i
-        nxt += 1
-    else:
-        longStr += i
+for i in range(len(s)):
+    if i == len(s) - 1:
+        if len(subStr) < len(s[start:end]):
+            subStr = s[start:end]
+        break
+    if s[i] > s[i+1]:
+        end = i + 1
+        if len(subStr) < len(s[start:end]):
+            subStr = s[start:end]
+        start = end
 
-print(longStr)       
+print("Longest substring in alphabetical order is: " + subStr)
